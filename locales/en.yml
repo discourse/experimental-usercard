@@ -1,0 +1,4 @@
+en:
+  more_badges: "+%{count}"
+  theme_metadata:
+    description: "New user card layout & style"
