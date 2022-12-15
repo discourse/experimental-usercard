@@ -11,24 +11,25 @@
 
 .d-user-card {
   margin: 1em auto;
-  width: 580px;
+  width: 480px;
   border-radius: 5px;
-  overflow: hidden;
   background-color: var(--secondary);
   box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.1);
   &__header {
     width: calc(100% - 1em);
     height: 75px;
     padding: 0.5em;
-    // background-color: var(--header-bg-color);
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
     background: linear-gradient(
         to bottom,
-        rgba(var(--secondary-rgb), 0.25),
-        rgba(var(--secondary-rgb), 0.50)
+        rgba(var(--secondary-rgb), 0.10),
+        rgba(var(--secondary-rgb), 0.25)
       ),
       var(--user-background);
     background-color: var(--tertiary);
     background-size: cover;
+    background-position: top center;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -111,29 +112,30 @@
   &__main-content {
     padding: 1em;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
-    gap: 0.5em;
   }
-  &__main-content-left {
+  &__main-content-top {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-content: center;
     flex: 1 1 min-content;
   }
-  &__main-content-right {
+  &__main-content-bottom {
     flex: 1 1 auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
     gap: 1em;
+    margin-top: 1em;
   }
   &__id {
     display: flex;
     height: 50px;
     position: relative;
+    max-width: calc(480px - 2em);
   }
   &__avatar img {
     width: 100px;
@@ -152,9 +154,10 @@
   }
   &__id-titles {
     margin-left: 0.5em;
+    margin-right: 1em;
     gap: 0.25em;
-    width: 100%;
     color: var(--primary);
+    flex: 1 1;
   }
   &__id-titles:hover {
     color: var(--primary);
@@ -162,17 +165,14 @@
   &__titles-top,
   &__titles-bottom {
     display: flex;
-    gap: 0.5em;
+    gap: 0.25em;
     align-items: center;
   }
   &__name {
     font-weight: bold;
-    margin: 0;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
     // max-width: 70%; needed for when pronouns are present
-    font-size: var(--font-up-3);
+    font-size: var(--font-up-2);
+    max-width: 225px;
   }
   &__user-link {
     cursor: pointer;
@@ -185,17 +185,14 @@
   //   text-overflow: ellipsis;
   // }
   &__user-name {
-    flex: 1 1 auto;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-  }
-  &__user-name .d-icon-shield-alt {
-    display: none;
+    font-size: var(--font-down-1);
   }
   &__user-title {
     font-style: italic;
-    flex: 1 1 70%;
+    flex: 1 1 auto;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -207,8 +204,8 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    justify-content: space-between;
     width: min-content;
+    font-size: var(--font-down-1);
   }
   &__time {
     background: var(--primary-low);
@@ -220,10 +217,12 @@
     width: max-content;
   }
   &__location {
-    font-size: 12px;
+    font-size: var(--font-down-1);
     color: var(--primary-high);
     margin-top: 0.25em;
     width: max-content;
+    max-width: 125px;
+    text-align: right;
   }
   &__user-content {
     width: auto;
@@ -243,6 +242,14 @@
   &__featured-topic-data:visited {
     color: var(--primary);
     text-decoration: underline;
+  }
+  &__suspension {
+    color: var(--danger);
+    background-color: var(--danger-low);
+    font-size: var(--font-down-2);
+    margin-bottom: 1em;
+    padding: 0.5em;
+    border-radius: 5px;
   }
   &__bio-excerpt {
     display: -webkit-box;
@@ -267,7 +274,8 @@
   }
   &__custom-field-group {
     display: flex;
-    gap: 0.5em;
+    gap: 0px 0.5em;
+    flex-wrap: wrap;
   }
   &__field {
     margin-bottom: 0.5em;
@@ -302,17 +310,26 @@
   &__controls {
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: flex-end;
-    gap: 0.5em;
     list-style: none;
     margin: 0;
+    gap: 0.50em;
   }
-  &__action,
-  li,
-  li div {
+  &__controls li {
+    flex: 1 1;
+  }
+  &__controls .chat-button {
+    flex: 1 1;
+  }
+  &__controls .chat-button div {
     display: flex;
-    flex-grow: 1; // weird chat button
+  }
+  &__controls li:empty {
+    display: none;
+  }
+  &__action {
+    display: flex;
   }
   &__button {
     border: none;
@@ -365,7 +382,7 @@
     &__website {
       max-width: 70%;
     }
-    &__main-content-right {
+    &__main-content-bottom {
       margin-top: calc(-45px - 1em);
       flex-direction: column;
     }
