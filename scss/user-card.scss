@@ -23,7 +23,7 @@
     border-top-left-radius: 5px;
     background: linear-gradient(
         to bottom,
-        rgba(var(--secondary-rgb), 0.10),
+        rgba(var(--secondary-rgb), 0.1),
         rgba(var(--secondary-rgb), 0.25)
       ),
       var(--user-background);
@@ -51,11 +51,11 @@
   &__badges .user-card-badge-link {
     display: flex;
     padding: 4px 6px;
-    background-color: rgba(255, 255, 255, 0.75);
+    background-color: rgba(var(--secondary-rgb), 0.75);
     border-radius: 4px;
   }
   &__badges .user-card-badge-link:hover {
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(var(--secondary-rgb), 0.95);
   }
   &__badges .badge-display-name {
     display: none;
@@ -64,11 +64,11 @@
     font-size: var(--font-down-1);
     display: flex;
     padding: 4px 6px;
-    background-color: rgba(255, 255, 255, 0.75);
+    background-color: rgba(var(--secondary-rgb), 0.75);
     border-radius: 4px;
   }
   &__badges-more:hover {
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(var(--secondary-rgb), 0.95);
   }
   &__badges-more a {
     font-size: var;
@@ -208,7 +208,8 @@
     font-size: var(--font-down-1);
   }
   &__time {
-    background: var(--primary-low);
+    background: var(--primary-200);
+    color: var(--primary);
     padding: 0.25em 0.325em;
     border-radius: 4px;
     display: flex;
@@ -230,6 +231,7 @@
     flex-direction: column;
     justify-content: space-between;
     margin-top: 1em;
+    color: var(--primary);
   }
   &__featured-topic {
     margin-bottom: 1em;
@@ -262,15 +264,14 @@
   &__custom-fields {
     display: flex;
     flex-direction: column;
-  }
-  &__custom-fields {
-    display: flex;
-    flex-direction: column;
     justify-content: flex-start;
-    font-size: 14px;
+    font-size: var(--font-down-2);
   }
   &__custom-field-title {
     font-weight: bold;
+  }
+  &__custom-field-data {
+    margin-left: 5px;
   }
   &__custom-field-group {
     display: flex;
@@ -279,6 +280,10 @@
   }
   &__field {
     margin-bottom: 0.5em;
+    background-color: var(--primary-200);
+    padding: 3px 5px;
+    display: flex;
+    border-radius: 5px;
   }
   &__meta-data {
     display: flex;
@@ -314,10 +319,11 @@
     justify-content: flex-end;
     list-style: none;
     margin: 0;
-    gap: 0.50em;
+    gap: 0.5em;
   }
   &__controls li {
     flex: 1 1;
+    min-width: max-content;
   }
   &__controls .chat-button {
     flex: 1 1;
@@ -389,5 +395,36 @@
     &__relative-time {
       height: 45px;
     }
+  }
+}
+.user-card-additional-buttons-outlet button {
+  width: 100%;
+  border: none;
+  line-height: normal;
+  box-sizing: border-box;
+  padding: 0.5em 0.65em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: normal;
+  color: var(--primary);
+  background-color: var(--primary-low);
+  flex-grow: 1;
+  cursor: pointer;
+  transition: all 0.25s;
+  gap: 0.5em;
+  border-radius: 4px;
+  margin: 0;
+}
+
+.user-card-metadata-outlet h3 {
+  font-weight: bold;
+  background-color: var(--primary-200);
+  padding: 3px 5px;
+  display: flex;
+  border-radius: 5px;
+  span.value {
+    font-weight: normal;
   }
 }
