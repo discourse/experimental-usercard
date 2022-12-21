@@ -1,3 +1,4 @@
+// RESET
 .user-card {
   all: initial;
   position: absolute;
@@ -7,6 +8,38 @@
   * {
     font-family: var(--font-family);
   }
+  .card-row:not(.first-row) {
+    margin-top: 0;
+  }
+  .card-avatar-placeholder {
+    border: 6px solid var(--secondary);
+    width: 100px;
+    height: 100px;
+    position: relative;
+    top: -50px;
+  }
+}
+// END RESET
+
+.d-user-card__avatar.d-user-card__placeholder-animation {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: relative;
+  top: -50px;
+}
+.d-user-card__titles-top.d-user-card__placeholder-animation {
+  height: 20px;
+  width: 100%;
+}
+.d-user-card__titles-bottom.d-user-card__placeholder-animation {
+  height: 10px;
+  width: 100%;
+  margin-top: 0.5em;
+}
+.card-row.d-user-card__placeholder-animation {
+  height: 10px;
+  width: 100%;
 }
 
 .d-user-card {
@@ -253,6 +286,10 @@
     padding: 0.5em;
     border-radius: 5px;
   }
+  &__bio {
+    border-bottom: 1px solid var(--primary-200);
+    margin-bottom: 0.75em;
+  }
   &__bio-excerpt {
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -288,7 +325,10 @@
   &__meta-data {
     display: flex;
     gap: 1em;
+    border-top: 1px solid var(--primary-200);
     align-items: center;
+    padding: 0.5em 0 0 0;
+    margin-top: 0.5em;
   }
   &__website {
     color: var(--primary);
@@ -427,4 +467,14 @@
   span.value {
     font-weight: normal;
   }
+}
+
+.d-user-card__placeholder-animation {
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeHolderShimmer;
+  animation-timing-function: linear;
+  background: var(--primary-very-low);
+  background: linear-gradient(to right, var(--primary-very-low) 10%, var(--primary-low) 18%, var(--primary-very-low) 33%);
 }

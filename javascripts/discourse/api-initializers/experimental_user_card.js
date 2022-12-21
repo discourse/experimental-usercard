@@ -9,6 +9,7 @@ import { observes } from "discourse-common/utils/decorators";
 export default apiInitializer("0.11.1", api => {
   api.modifyClass("component:user-card-contents", {
     classNames: "d-user-card",
+
     @observes("user.card_background_upload_url")
     addBackground(background) {
       if (!this.allowBackgrounds) {
