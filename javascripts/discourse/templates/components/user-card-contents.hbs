@@ -33,8 +33,8 @@
       <i class="fa-solid fa-pencil"></i>
       <span class="btn-label">Edit</span>
       </button> }}
-      {{#if this.showBadges}}
-        <div class="d-user-card__badges">
+      <div class="d-user-card__badges">
+        {{#if this.showBadges}}
           {{#if this.user.featured_user_badges}}
             {{#each this.user.featured_user_badges as |ub|}}
               <UserBadge @badge={{ub.badge}} @user={{this.user}} />
@@ -47,8 +47,9 @@
               </span>
             {{/if}}
           {{/if}}
-        </div>
-      {{/if}}
+        {{/if}}
+      </div>
+      <PluginOutlet @name="user-card-post-names" @connectorTagName="div" @args={{hash user=this.user}} @tagName="div"/>
     </div>
     <div class="d-user-card__main-content">
       <div class="d-user-card__main-content-top">
@@ -64,7 +65,7 @@
             <UserAvatarFlair @user={{this.user}} />
           {{/if}}
           <PluginOutlet @name="user-card-avatar-flair" @connectorTagName="div" @args={{hash user=this.user}} @tagName="div"/>
-          <a href={{this.user.path}} {{on "click" (fn this.handleShowUser this.user)}} class="d-user-card__id-titles">
+          <a href={{this.user.path}} title={{if this.nameFirst this.user.name (format-username this.user.name)}} {{on "click" (fn this.handleShowUser this.user)}} class="d-user-card__id-titles">
             <div class="d-user-card__titles-top">
               <h1 class="d-user-card__name {{this.staff}} {{this.newUser}} {{if this.nameFirst 'full-name' 'username'}}">
                 {{#if this.user.profile_hidden}}
@@ -83,7 +84,13 @@
             </div>
             <div class="d-user-card__titles-bottom">
               <div class="d-user-card__user-name">
-                @{{if this.nameFirst this.user.name (format-username this.user.username)}}
+                {{#if this.nameFirst}}
+                  @{{this.user.username}}
+                {{else}}
+                  {{#if this.user.name}}
+                    {{this.user.name}}
+                  {{/if}}
+                {{/if}}
                 {{user-status this.user currentUser=this.currentUser}}
               </div>
               {{#if this.user.title}}
@@ -92,27 +99,28 @@
                 </span>
               {{/if}}
             </div>
-            <PluginOutlet @name="user-card-post-names" @connectorTagName="div" @args={{hash user=this.user}} @tagName="div"/>
           </a>
-          <div class="d-user-card__relative-time">
-            {{#if this.showUserLocalTime}}
-              <div class="d-user-card__time">
-                {{d-icon "far-clock"}}
-                <span class="label">{{this.formattedUserLocalTime}}</span>
-              </div>
-            {{/if}}
-            {{#if this.user.location}}
-              <div class="d-user-card__location">
-                {{d-icon "map-marker-alt"}}
-                <span class="label">{{this.user.location}}</span>
-              </div>
-            {{/if}}
-          </div>
-        </div>
+          {{#if (or this.showUserLocalTime this.user.location)}}
+            <div class="d-user-card__relative-time">
+              {{#if this.showUserLocalTime}}
+                <div class="d-user-card__time">
+                  {{d-icon "far-clock"}}
+                  <span class="label">{{this.formattedUserLocalTime}}</span>
+                </div>
+              {{/if}}
+              {{#if this.user.location}}
+                <div class="d-user-card__location">
+                  {{d-icon "map-marker-alt"}}
+                  <span class="label">{{this.user.location}}</span>
+                </div>
+              {{/if}}
+            </div>
+          {{/if}}
+        </div>  
         <div class="d-user-card__user-content">
           {{#if this.showFeaturedTopic}}
             <div class="d-user-card__featured-topic">
-              <span class="d-user-card__featured-topic-title">{{html-safe (replace-emoji "📝")}}</span>
+              <span class="d-user-card__featured-topic-title">{{html-safe (replace-emoji "📌")}}</span>
               <LinkTo @route="topic" @class="d-user-card__link" @models={{array this.user.featured_topic.slug this.user.featured_topic.id}}>{{html-safe (replace-emoji this.user.featured_topic.fancy_title)}}</LinkTo>
             </div>
           {{/if}}
@@ -149,13 +157,13 @@
               <div class="d-user-card__custom-field-group">
                 {{#if this.user.last_posted_at}}
                   <div class="d-user-card__field posted">
-                    <span class="d-user-card__custom-field-title">{{i18n "last_post"}}:</span>
+                    <span class="d-user-card__custom-field-title">{{i18n "last_post"}}</span>
                     <span class="d-user-card__custom-field-data">{{format-date this.user.last_posted_at leaveAgo="true"}}</span>
                   </div>
                 {{/if}}
                 {{#if this.user.time_read}}
                   <div class="d-user-card__field read">
-                    <span class="d-user-card__custom-field-title">{{i18n "time_read"}}:</span>
+                    <span class="d-user-card__custom-field-title">{{i18n "time_read"}}</span>
                     <span class="d-user-card__custom-field-data">{{format-duration this.user.time_read}}
                       {{#if this.showRecentTimeRead}}
                         ({{i18n "time_read_recently" time_read=this.recentTimeRead}})
@@ -176,29 +184,25 @@
                   </div>
                 {{/if}}
                 <PluginOutlet @name="user-card-metadata" @connectorTagName="div" @args={{hash user=this.user}} />
+                {{#if this.publicUserFields}}
+                  {{#each this.publicUserFields as |uf|}}
+                      {{#if uf.value}}
+                        <div class="d-user-card__field {{uf.field.dasherized_name}}">
+                          <span class="d-user-card__custom-field-title">{{uf.field.name}}</span>
+                          <span class="d-user-card__custom-field-data">
+                            {{#each uf.value as |v|}} {{! some values are arrays }}
+                              {{v}}
+                            {{else}}
+                              {{uf.value}}
+                            {{/each}}
+                          </span>
+                        </div>
+                      {{/if}}
+                  {{/each}}
+                {{/if}}
               </div>
             </div>
           {{/unless}}
-          {{#if this.publicUserFields}}
-            <div class="d-user-card__custom-fields">
-              <div class="d-user-card__custom-field-group">
-                {{#each this.publicUserFields as |uf|}}
-                    {{#if uf.value}}
-                      <div class="d-user-card__field {{uf.field.dasherized_name}}">
-                        <span class="d-user-card__custom-field-title">{{uf.field.name}}:</span>
-                        <span class="d-user-card__custom-field-data">
-                          {{#each uf.value as |v|}} {{! some values are arrays }}
-                            {{v}}
-                          {{else}}
-                            {{uf.value}}
-                          {{/each}}
-                        </span>
-                      </div>
-                    {{/if}}
-                {{/each}}
-              </div>
-            </div>
-          {{/if}}
           <PluginOutlet @name="user-card-after-metadata" @connectorTagName="div" @args={{hash user=this.user}} />
           <div class="d-user-card__meta-data">
           {{#if this.user.website_name}}
