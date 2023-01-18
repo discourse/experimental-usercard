@@ -38,8 +38,8 @@
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    flex-direction: row;
+    align-items: flex-start;
     justify-content: space-between;
   }
   &__header.avatar-background {
@@ -50,22 +50,25 @@
     display: flex;
     border-radius: 4px;
     gap: 0.5em;
-    font-size: 16px;
+    height: 15px;
+    margin-left: auto;
   }
   &__badges .user-badge {
     background-color: transparent;
     border: none;
     margin-top: 0;
     padding: 0;
+    font-size: var(--font-down-2);
   }
   &__badges .user-card-badge-link {
     display: flex;
     padding: 4px 6px;
-    background-color: rgba(var(--secondary-rgb), 0.75);
+    background-color: rgba(var(--secondary-rgb), 1);
     border-radius: 4px;
+    height: 15px;
   }
   &__badges .user-card-badge-link:hover {
-    background-color: rgba(var(--secondary-rgb), 0.95);
+    background-color: var(--secondary-very-high);
   }
   &__badges .badge-display-name {
     display: none;
@@ -74,11 +77,12 @@
     font-size: var(--font-down-1);
     display: flex;
     padding: 4px 6px;
-    background-color: rgba(var(--secondary-rgb), 0.75);
+    background-color: rgba(var(--secondary-rgb), 1);
     border-radius: 4px;
+    height: 15px;
   }
   &__badges-more:hover {
-    background-color: rgba(var(--secondary-rgb), 0.95);
+    background-color: var(--secondary-very-high);
   }
   &__badges-more a {
     font-size: var;
@@ -120,7 +124,7 @@
     --fa-secondary-opacity: 1;
   }
   &__main-content {
-    padding: 1em;
+    padding: 0.5em 1em 1em 1em;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -164,7 +168,7 @@
     background-size: 40px 40px;
     position: absolute;
     left: -30px;
-    bottom: 0px;
+    bottom: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -203,20 +207,21 @@
     flex: 1 1;
     max-width: calc(100% - 100px - 0.5em)
   }
-  &__id-titles:has(+ .d-user-card__relative-time) {
-    max-width: calc(100% - 100px - 0.5em - 120px);
-  }
   &__id-titles:visited {
     color: var(--primary);
   }
   &__id-titles:hover {
     color: var(--primary);
   }
-  &__titles-top,
+  &__titles-top {
+    display: flex;
+    flex-direction: row;
+    gap: 0.25em;
+  }
   &__titles-bottom {
     display: flex;
+    flex-direction: row;
     gap: 0.25em;
-    align-items: center;
   }
   &__name {
     font-weight: bold;
@@ -234,10 +239,9 @@
   //   text-overflow: ellipsis;
   // }
   &__user-name {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    font-size: var(--font-down-1);
+    display: inline-block;
+    font-size: var(--font-0);
+    display: flex;
   }
   &__user-title {
     font-style: italic;
@@ -251,26 +255,23 @@
   }
   &__relative-time {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    flex-direction: row;
+    align-items: center;
     width: min-content;
-    font-size: var(--font-down-1);
-    margin-left: auto;
-  }
-  &__time {
-    background: var(--primary-200);
-    color: var(--primary);
+    background-color: rgba(var(--secondary-rgb),0.5);
     padding: 0.25em 0.325em;
     border-radius: 4px;
+    gap: 0.5em;
+  }
+  &__time {
+    color: var(--primary);
     width: max-content;
+    font-size: var(--font-down-2);
   }
   &__location {
-    font-size: var(--font-down-1);
-    color: var(--primary-high);
-    margin-top: 0.25em;
     width: max-content;
-    max-width: 125px;
     text-align: right;
+    font-size: var(--font-down-2);
   }
   &__user-content {
     width: auto;
@@ -340,6 +341,7 @@
     display: flex;
     flex-wrap: wrap;
     border-top: 1px solid var(--primary-200);
+    font-size: var(--font-down-1);
     align-items: center;
     padding: 0.5em 0 0 0;
     margin-top: 0.5em;
@@ -351,6 +353,9 @@
     gap: 0.5em;
     align-content: center;
     margin-right: 1em;
+  }
+  &__meta-data span:empty {
+    display: none;
   }
   &__link {
     text-decoration: underline;
@@ -528,7 +533,7 @@
 }
 
 //  Hide on meta
-body:not(.primary-group-team) {
+body:not(.staff) {
   li.select-kit-row[data-name="Experimental User Card Test"] {
     display: none;
   }
