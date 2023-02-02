@@ -9,6 +9,7 @@ import { observes } from "discourse-common/utils/decorators";
 export default apiInitializer("0.11.1", api => {
   api.modifyClass("component:user-card-contents", {
     classNames: "d-user-card",
+    pluginId: "experimental-user-card",
 
     @observes("user.card_background_upload_url")
     addBackground(background) {
@@ -23,9 +24,15 @@ export default apiInitializer("0.11.1", api => {
 
       // TODO: Assign background color to average color of user profile image
 
-      const url = this.get("user.card_background_upload_url");
-      const bg = isEmpty(url) ? "" : `url(${getURLWithCDN(url)})`;
+      const backgroundUrl = this.get("user.card_background_upload_url");
+      const avatar_template = get(this.user, "avatar_template").replace("{size}","240");
+
+      const bg = isEmpty(backgroundUrl) ? `url(${getURLWithCDN(avatar_template)})` : `url(${getURLWithCDN(backgroundUrl)})`;
       thisElem.style.setProperty("--user-background", bg);
+
+      if (isEmpty(backgroundUrl) && !isEmpty(avatar_template)) {
+        thisElem.querySelector(".d-user-card__header").classList.add("avatar-background");
+      }
     }
   });
 
