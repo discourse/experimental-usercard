@@ -205,7 +205,7 @@
     gap: 0.25em;
     color: var(--primary);
     flex: 1 1;
-    max-width: calc(100% - 100px - 0.5em)
+    max-width: calc(100% - 120px - 0.5em)
   }
   &__id-titles:visited {
     color: var(--primary);
@@ -225,26 +225,17 @@
   }
   &__name {
     font-weight: bold;
-    // max-width: 70%;
     font-size: var(--font-up-2);
   }
   &__user-link {
     cursor: pointer;
   }
-  // &__pronouns { DOES NOT EXIST YET
-  //   color: var(--primary-medium);
-  //   max-width: 30%;
-  //   overflow: hidden;
-  //   white-space: nowrap;
-  //   text-overflow: ellipsis;
-  // }
   &__user-name {
     display: inline-block;
     font-size: var(--font-0);
     display: flex;
   }
   &__user-title {
-    font-style: italic;
     flex: 1 1 auto;
     overflow: hidden;
     white-space: nowrap;
@@ -282,11 +273,12 @@
     color: var(--primary);
   }
   &__featured-topic {
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
     font-size: var(--font-down-1);
   }
-  &__featured-topic-title {
-    font-weight: bold;
+  &__featured-topic img.emoji {
+    height: var(--font-0);
+    width: var(--font-0);
   }
   &__featured-topic-data,
   &__featured-topic-data:visited {
@@ -302,7 +294,6 @@
     border-radius: 5px;
   }
   &__bio {
-    border-bottom: 1px solid var(--primary-200);
     margin-bottom: 0.75em;
   }
   &__bio-excerpt {
@@ -310,14 +301,21 @@
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    margin-bottom: 1em;
     font-size: var(--font-down-1);
   }
+  &__bio-excerpt img.emoji:not(.only-emoji) {
+    height: var(--font-0);
+    width: var(--font-0);
+  }
   &__custom-fields {
+    border-top: 1px solid var(--primary-200);
+    border-bottom: 1px solid var(--primary-200);
+    padding: 0.5em 0;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     font-size: var(--font-down-2);
+    margin-bottom: 0.75em;
   }
   &__custom-field-title {
     font-weight: bold;
@@ -327,11 +325,10 @@
   }
   &__custom-field-group {
     display: flex;
-    gap: 0px 0.5em;
+    gap: 0.5em;
     flex-wrap: wrap;
   }
   &__field {
-    margin-bottom: 0.5em;
     background-color: var(--primary-200);
     padding: 3px 5px;
     display: flex;
@@ -340,11 +337,8 @@
   &__meta-data {
     display: flex;
     flex-wrap: wrap;
-    border-top: 1px solid var(--primary-200);
     font-size: var(--font-down-1);
     align-items: center;
-    padding: 0.5em 0 0 0;
-    margin-top: 0.5em;
   }
   &__website {
     color: var(--primary);
@@ -424,7 +418,6 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 14px;
     font-weight: normal;
     flex-grow: 1;
     cursor: pointer;
@@ -462,6 +455,7 @@
   padding: 3px 5px;
   display: flex;
   border-radius: 5px;
+  font-size: var(--font-0);
   span.desc {
     color: var(--primary);
     font-weight: bold;
@@ -504,7 +498,7 @@
   width: 100%;
 }
 
-// SMOLL SCREENS
+// SMALL SCREENS
 @media screen and (max-width: 580px) {
   .d-user-card {
     width: 95vw;
@@ -518,13 +512,6 @@
     }
     &__website {
       max-width: 70%;
-    }
-    &__id-titles {
-      margin: 0 0 0 0.5em;
-      font-size: var(--font-down-1);
-    }
-    &__relative-time {
-      height: 45px;
     }
     &__relative-time .d-icon {
       font-size: var(--font-down-1);
@@ -541,7 +528,7 @@ body:not(.staff) {
 
 .user-card-post-names-outlet {
   display: flex;
-  padding: 4px 6px;
+  // padding: 4px 6px;
   background-color: rgba(var(--secondary-rgb), 0.75);
   border-radius: 4px;
   &:not(:has(*)) {

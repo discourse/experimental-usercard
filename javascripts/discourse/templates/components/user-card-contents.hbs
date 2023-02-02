@@ -175,6 +175,7 @@
                   (replace-emoji "📌")
                 }}</span>
               <LinkTo
+                @title={{i18n "user.featured_topic"}}
                 @route="topic"
                 @class="d-user-card__link"
                 @models={{array
@@ -214,7 +215,7 @@
                 {{#if this.user.bio_excerpt}}
                   <div class="d-user-card__bio-excerpt">
                     <HtmlWithLinks>
-                      {{html-safe this.user.bio_excerpt}}
+                      <p>{{html-safe this.user.bio_excerpt}}</p>
                     </HtmlWithLinks>
                   </div>
                 {{/if}}
@@ -306,21 +307,15 @@
           />
           <div class="d-user-card__meta-data">
             {{#if this.user.website_name}}
-              {{#if this.linkWebsite}}
-                <div class="d-user-card__website">
-                  {{d-icon "globe"}}
-                  <a
-                    href="{{this.user.website}}"
-                    rel="noopener {{unless this.removeNoFollow 'nofollow ugc'}}"
-                    target="_blank"
-                    class="d-user-card__link"
-                  >{{this.user.website_name}}</a>
-                </div>
-              {{else}}
-                <span
-                  title={{this.user.website}}
-                >{{this.user.website_name}}</span>
-              {{/if}}
+              <div class="d-user-card__website">
+                {{d-icon "globe"}}
+                <a
+                  href="{{this.user.website}}"
+                  rel="noopener {{unless this.removeNoFollow 'nofollow ugc'}}"
+                  target="_blank"
+                  class="d-user-card__link"
+                >{{this.user.website_name}}</a>
+              </div>
             {{/if}}
             <div class="d-user-card__cakeday">
               <img
@@ -402,9 +397,9 @@
             {{/if}}
             <PluginOutlet
               @name="user-card-additional-buttons"
-              @connectorTagName="div"
+              @connectorTagName="li"
               @args={{hash user=this.user close=(action "close")}}
-              @tagName="li"
+              @tagName=""
             />
           </ul>
           <PluginOutlet
