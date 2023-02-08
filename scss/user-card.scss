@@ -263,6 +263,7 @@
     width: max-content;
     text-align: right;
     font-size: var(--font-down-2);
+    color: var(--primary);
   }
   &__user-content {
     width: auto;
@@ -301,7 +302,7 @@
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    font-size: var(--font-down-1);
+    font-size: var(--font-0);
   }
   &__bio-excerpt img.emoji:not(.only-emoji) {
     height: var(--font-0);
@@ -314,7 +315,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    font-size: var(--font-down-2);
+    font-size: var(--font-down-1);
     margin-bottom: 0.75em;
   }
   &__custom-field-title {
@@ -406,7 +407,6 @@
     flex-grow: 1;
     cursor: pointer;
     transition: all 0.25s;
-    gap: 0.5em;
     border-radius: 4px;
     margin: 0;
   }
@@ -422,7 +422,6 @@
     flex-grow: 1;
     cursor: pointer;
     transition: all 0.25s;
-    gap: 0.5em;
     border-radius: 4px;
     margin: 0;
   }
@@ -503,6 +502,9 @@
   .d-user-card {
     width: 95vw;
     margin: 0 2.5vw;
+    &__controls {
+      flex-direction: column;
+    }
     &__main-content {
       flex-direction: column;
       padding: 0.5em;
