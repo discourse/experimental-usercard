@@ -50,7 +50,6 @@
     display: flex;
     border-radius: 4px;
     gap: 0.5em;
-    height: 15px;
     margin-left: auto;
   }
   &__badges .user-badge {
@@ -58,14 +57,12 @@
     border: none;
     margin-top: 0;
     padding: 0;
-    font-size: var(--font-down-2);
   }
   &__badges .user-card-badge-link {
     display: flex;
-    padding: 4px 6px;
+    padding: 5px 6px;
     background-color: rgba(var(--secondary-rgb), 1);
     border-radius: 4px;
-    height: 15px;
   }
   &__badges .user-card-badge-link:hover {
     background-color: var(--secondary-very-high);
@@ -360,7 +357,6 @@
     color: var(--primary);
   }
   &__cakeday {
-    font-size: 14px;
     display: flex;
     align-items: center;
     gap: 0.5em;
@@ -447,7 +443,7 @@
 }
 
 .user-card-metadata-outlet h3 {
-  font-weight: normal;
+  font-weight: bold;
   background-color: var(--primary-200);
   padding: 3px 5px;
   display: flex;
@@ -542,4 +538,8 @@ body:not(.staff) {
 .user-card-metadata-outlet {
   display: flex;
   flex-direction: row;
+  gap: 0.5em;
+  &:empty {
+    display: none;
+  }
 }
