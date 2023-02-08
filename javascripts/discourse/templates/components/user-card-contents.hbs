@@ -1,7 +1,7 @@
 {{#if this.visible}}
   <PluginOutlet
     @name="before-user-card-content"
-    @ouletArgs={{hash user=this.user}}
+    @args={{hash user=this.user}}
   />
   {{#if this.loading}}
     <div class="d-user-card__header d-user-card__placeholder-animation">
@@ -100,7 +100,7 @@
           <PluginOutlet
             @name="user-card-avatar-flair"
             @connectorTagName="div"
-            @ouletArgs={{hash user=this.user}}
+            @args={{hash user=this.user}}
             @tagName="div"
           />
           <div class="d-user-card__id-titles">
@@ -144,7 +144,7 @@
               <PluginOutlet
                 @name="user-card-post-names"
                 @connectorTagName="div"
-                @ouletArgs={{hash user=this.user}}
+                @args={{hash user=this.user}}
                 @tagName="div"
               />
             </div>
@@ -274,7 +274,7 @@
                 <PluginOutlet
                   @name="user-card-metadata"
                   @connectorTagName="div"
-                  @ouletArgs={{hash user=this.user}}
+                  @args={{hash user=this.user}}
                 />
                 {{#if this.publicUserFields}}
                   {{#each this.publicUserFields as |uf|}}
@@ -303,7 +303,7 @@
           <PluginOutlet
             @name="user-card-after-metadata"
             @connectorTagName="div"
-            @ouletArgs={{hash user=this.user}}
+            @args={{hash user=this.user}}
           />
           <div class="d-user-card__meta-data">
             {{#if this.user.website_name}}
@@ -333,7 +333,7 @@
               @name="user-card-location-and-website"
               @tagName="span"
               @connectorTagName="div"
-              @ouletArgs={{hash user=this.user}}
+              @args={{hash user=this.user}}
             />
           </div>
         </div>
@@ -361,7 +361,7 @@
             <PluginOutlet
               @name="user-card-below-message-button"
               @connectorTagName="li"
-              @ouletArgs={{hash user=this.user close=(action "close")}}
+              @args={{hash user=this.user close=(action "close")}}
               @tagName=""
             />
             {{#if this.showFilter}}
@@ -398,14 +398,14 @@
             <PluginOutlet
               @name="user-card-additional-buttons"
               @connectorTagName="li"
-              @ouletArgs={{hash user=this.user close=(action "close")}}
+              @args={{hash user=this.user close=(action "close")}}
               @tagName=""
             />
           </ul>
           <PluginOutlet
             @name="user-card-additional-controls"
             @connectorTagName="div"
-            @ouletArgs={{hash user=this.user close=(action "close")}}
+            @args={{hash user=this.user close=(action "close")}}
           />
         </div>
       {{/if}}
