@@ -49,7 +49,7 @@
           {{#if this.showUserLocalTime}}
             <div class="d-user-card__time">
               {{d-icon "far-clock"}}
-              <span class="label">6:00 PM</span>
+              <span class="label">{{this.formattedUserLocalTime}}</span>
             </div>
           {{/if}}
           {{#if this.user.location}}
