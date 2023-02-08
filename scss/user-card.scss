@@ -256,12 +256,12 @@
   &__time {
     color: var(--primary);
     width: max-content;
-    font-size: var(--font-down-2);
+    font-size: var(--font-down-1);
   }
   &__location {
     width: max-content;
     text-align: right;
-    font-size: var(--font-down-2);
+    font-size: var(--font-down-1);
     color: var(--primary);
   }
   &__user-content {
@@ -337,7 +337,6 @@
   &__meta-data {
     display: flex;
     flex-wrap: wrap;
-    font-size: var(--font-down-1);
     align-items: center;
   }
   &__website {
