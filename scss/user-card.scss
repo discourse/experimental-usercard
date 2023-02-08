@@ -539,3 +539,8 @@ body:not(.staff) {
   background-color: rgba(var(--secondary-rgb), 1);
   }
 }
+
+.user-card-metadata-outlet {
+  display: flex;
+  flex-direction: row;
+}
