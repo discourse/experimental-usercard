@@ -33,7 +33,7 @@
   background-position: 50% 50%;
   &__header {
     width: calc(100% - 1em);
-    height: 75px;
+    height: 100px;
     padding: 0.5em;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
@@ -50,7 +50,6 @@
     display: flex;
     border-radius: 4px;
     gap: 0.5em;
-    height: 15px;
     margin-left: auto;
   }
   &__badges .user-badge {
@@ -58,14 +57,12 @@
     border: none;
     margin-top: 0;
     padding: 0;
-    font-size: var(--font-down-2);
   }
   &__badges .user-card-badge-link {
     display: flex;
-    padding: 4px 6px;
+    padding: 5px 6px;
     background-color: rgba(var(--secondary-rgb), 1);
     border-radius: 4px;
-    height: 15px;
   }
   &__badges .user-card-badge-link:hover {
     background-color: var(--secondary-very-high);
@@ -73,13 +70,17 @@
   &__badges .badge-display-name {
     display: none;
   }
+  &__badges .svg-icon {
+    width: 1.125em;
+    height: 1.125em;
+  }
   &__badges-more {
     font-size: var(--font-down-1);
     display: flex;
-    padding: 4px 6px;
+    padding: 5px 6px;
     background-color: rgba(var(--secondary-rgb), 1);
     border-radius: 4px;
-    height: 15px;
+    align-items: center;
   }
   &__badges-more:hover {
     background-color: var(--secondary-very-high);
@@ -204,7 +205,7 @@
     gap: 0.25em;
     color: var(--primary);
     flex: 1 1;
-    max-width: calc(100% - 120px - 0.5em)
+    max-width: calc(100% - 120px - 0.5em);
   }
   &__id-titles:visited {
     color: var(--primary);
@@ -248,20 +249,20 @@
     flex-direction: row;
     align-items: center;
     width: min-content;
-    background-color: rgba(var(--secondary-rgb),0.5);
-    padding: 0.25em 0.325em;
+    background-color: rgba(var(--secondary-rgb), 0.5);
+    padding: 6px;
     border-radius: 4px;
     gap: 0.5em;
   }
   &__time {
     color: var(--primary);
     width: max-content;
-    font-size: var(--font-down-2);
+    font-size: var(--font-down-1);
   }
   &__location {
     width: max-content;
     text-align: right;
-    font-size: var(--font-down-2);
+    font-size: var(--font-down-1);
     color: var(--primary);
   }
   &__user-content {
@@ -333,11 +334,11 @@
     padding: 3px 5px;
     display: flex;
     border-radius: 5px;
+    align-items: center;
   }
   &__meta-data {
     display: flex;
     flex-wrap: wrap;
-    font-size: var(--font-down-1);
     align-items: center;
   }
   &__website {
@@ -361,7 +362,6 @@
     color: var(--primary);
   }
   &__cakeday {
-    font-size: 14px;
     display: flex;
     align-items: center;
     gap: 0.5em;
@@ -448,7 +448,7 @@
 }
 
 .user-card-metadata-outlet h3 {
-  font-weight: normal;
+  font-weight: bold;
   background-color: var(--primary-200);
   padding: 3px 5px;
   display: flex;
@@ -472,7 +472,12 @@
   animation-name: placeHolderShimmer;
   animation-timing-function: linear;
   background: var(--primary-very-low);
-  background: linear-gradient(to right, var(--primary-very-low) 10%, var(--primary-low) 18%, var(--primary-very-low) 33%);
+  background: linear-gradient(
+    to right,
+    var(--primary-very-low) 10%,
+    var(--primary-low) 18%,
+    var(--primary-very-low) 33%
+  );
 }
 
 .d-user-card__avatar.d-user-card__placeholder-animation {
@@ -536,11 +541,15 @@ body:not(.staff) {
     display: none;
   }
   &:hover {
-  background-color: rgba(var(--secondary-rgb), 1);
+    background-color: rgba(var(--secondary-rgb), 1);
   }
 }
 
 .user-card-metadata-outlet {
   display: flex;
   flex-direction: row;
+  gap: 0.5em;
+  &:empty {
+    display: none;
+  }
 }
