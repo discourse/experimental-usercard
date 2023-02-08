@@ -33,7 +33,7 @@
   background-position: 50% 50%;
   &__header {
     width: calc(100% - 1em);
-    height: 75px;
+    height: 100px;
     padding: 0.5em;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
@@ -70,12 +70,17 @@
   &__badges .badge-display-name {
     display: none;
   }
+  &__badges .svg-icon {
+    width: 1.125em;
+    height: 1.125em;
+  }
   &__badges-more {
     font-size: var(--font-down-1);
     display: flex;
     padding: 5px 6px;
     background-color: rgba(var(--secondary-rgb), 1);
     border-radius: 4px;
+    align-items: center;
   }
   &__badges-more:hover {
     background-color: var(--secondary-very-high);
@@ -245,7 +250,7 @@
     align-items: center;
     width: min-content;
     background-color: rgba(var(--secondary-rgb),0.5);
-    padding: 0.25em 0.325em;
+    padding: 6px;
     border-radius: 4px;
     gap: 0.5em;
   }
