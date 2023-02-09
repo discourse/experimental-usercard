@@ -29,7 +29,7 @@
   z-index: 1102;
   background: var(--user-background);
   background-color: var(--secondary);
-  background-size: 150%;
+  background-size: cover;
   background-position: 50% 50%;
   &__header {
     width: calc(100% - 1em);
