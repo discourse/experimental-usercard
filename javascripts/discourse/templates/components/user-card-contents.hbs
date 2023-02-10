@@ -190,6 +190,9 @@
                   }}</LinkTo>
               </div>
             {{/if}}
+            {{#if this.user.profile_hidden}}
+             <span>{{i18n "user.profile_hidden"}}</span>
+            {{/if}}
             {{#if this.isSuspendedOrHasBio}}
               <div class="d-user-card__bio">
                 {{#if this.user.suspend_reason}}
@@ -320,18 +323,20 @@
                   >{{this.user.website_name}}</a>
                 </div>
               {{/if}}
-              <div class="d-user-card__cakeday">
-                <img
-                  height="20"
-                  width="20"
-                  src="https://emoji.discourse-cdn.com/twitter/cake.png?v=12"
-                  alt=""
-                />
-                <span class="label">{{format-date
-                    this.user.created_at
-                    leaveAgo="true"
-                  }}</span>
-              </div>
+              {{#if this.user.created_at}}
+                <div class="d-user-card__cakeday">
+                  <img
+                    height="20"
+                    width="20"
+                    src="https://emoji.discourse-cdn.com/twitter/cake.png?v=12"
+                    alt=""
+                  />
+                  <span class="label">{{format-date
+                      this.user.created_at
+                      leaveAgo="true"
+                    }}</span>
+                </div>
+              {{/if}}
               <span>
                 <PluginOutlet
                   @name="user-card-location-and-website"
