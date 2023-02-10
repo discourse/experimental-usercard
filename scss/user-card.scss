@@ -29,11 +29,18 @@
   z-index: 1102;
   background: var(--user-background);
   background-color: var(--secondary);
-  background-size: 150%;
+  background-size: cover;
   background-position: 50% 50%;
+  overflow: hidden;
+  &.avatar-background {
+    .d-user-card__container {
+      backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    }
+  }
   &__header {
     width: calc(100% - 1em);
-    height: 100px;
+    height: 75px;
     padding: 0.5em;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
@@ -41,10 +48,6 @@
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
-  }
-  &__header.avatar-background {
-    backdrop-filter: blur(100px);
-    -webkit-backdrop-filter: blur(50px);
   }
   &__badges {
     display: flex;
@@ -125,13 +128,13 @@
     --fa-secondary-opacity: 1;
   }
   &__main-content {
-    padding: 0.5em 1em 1em 1em;
+    margin: 0 5px 5px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    border-radius: 5px;
     background-color: var(--secondary);
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
+    padding: 0.5em;
   }
   &__main-content-top {
     display: flex;
@@ -147,7 +150,7 @@
     justify-content: space-between;
     align-items: flex-end;
     gap: 1em;
-    margin-top: 1em;
+    margin: 0.5em 0 0 0;
   }
   &__id {
     display: flex;
@@ -326,11 +329,9 @@
   }
   &__custom-field-group {
     display: flex;
-    gap: 0.5em;
     flex-wrap: wrap;
   }
   &__field {
-    background-color: var(--primary-200);
     padding: 3px 5px;
     display: flex;
     border-radius: 5px;
@@ -448,8 +449,7 @@
 }
 
 .user-card-metadata-outlet h3 {
-  font-weight: bold;
-  background-color: var(--primary-200);
+
   padding: 3px 5px;
   display: flex;
   border-radius: 5px;
@@ -511,7 +511,6 @@
     }
     &__main-content {
       flex-direction: column;
-      padding: 0.5em;
     }
     &__meta-data {
       gap: 0.5em;
