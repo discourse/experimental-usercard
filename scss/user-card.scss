@@ -265,6 +265,10 @@
     text-align: right;
     font-size: var(--font-down-1);
     color: var(--primary);
+    max-width: 200px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
   }
   &__user-content {
     width: auto;
