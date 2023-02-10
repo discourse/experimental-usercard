@@ -37,7 +37,7 @@ export default apiInitializer("0.11.1", api => {
       thisElem.style.setProperty("--user-background", bg);
 
       if (isEmpty(backgroundUrl) && !isEmpty(avatar_template)) {
-        thisElem.querySelector(".d-user-card__header").classList.add("avatar-background");
+        thisElem.classList.add("avatar-background");
       }
     }
   });

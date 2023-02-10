@@ -32,6 +32,12 @@
   background-size: cover;
   background-position: 50% 50%;
   overflow: hidden;
+  &.avatar-background {
+    .d-user-card__container {
+      backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    }
+  }
   &__header {
     width: calc(100% - 1em);
     height: 75px;
@@ -42,10 +48,6 @@
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
-  }
-  &__header.avatar-background {
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
   }
   &__badges {
     display: flex;
@@ -130,10 +132,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-  }
-  &__header.avatar-background + .d-user-card__main-content {
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
   }
   &__main-content-top {
     display: flex;
@@ -517,7 +515,6 @@
     }
     &__main-content {
       flex-direction: column;
-      padding: 0.5em;
     }
     &__meta-data {
       gap: 0.5em;
