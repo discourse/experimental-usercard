@@ -38,12 +38,11 @@
     -webkit-backdrop-filter: blur(30px);
     }
   }
+  &__container {
+    padding: 5px;
+  }
   &__header {
-    width: calc(100% - 1em);
-    height: 75px;
-    padding: 0.5em;
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
+    height: 100px;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -128,7 +127,6 @@
     --fa-secondary-opacity: 1;
   }
   &__main-content {
-    margin: 0 5px 5px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
