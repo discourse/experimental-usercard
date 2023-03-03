@@ -191,7 +191,7 @@
               </div>
             {{/if}}
             {{#if this.user.profile_hidden}}
-             <span>{{i18n "user.profile_hidden"}}</span>
+              <span>{{i18n "user.profile_hidden"}}</span>
             {{/if}}
             {{#if this.isSuspendedOrHasBio}}
               <div class="d-user-card__bio">
@@ -286,7 +286,8 @@
                     {{#each this.publicUserFields as |uf|}}
                       {{#if uf.value}}
                         <div
-                          class="d-user-card__field {{uf.field.dasherized_name}}"
+                          class="d-user-card__field
+                            {{uf.field.dasherized_name}}"
                         >
                           <span
                             class="d-user-card__custom-field-title"
@@ -332,7 +333,11 @@
                     alt=""
                   />
                   <span class="label">{{format-date
-                      this.user.created_at
+                      (if
+                        (theme-setting "use_contract_date_for_cakeday")
+                        this.user.custom_fields.employee_contract_start_date
+                        this.user.created_at
+                      )
                       leaveAgo="true"
                     }}</span>
                 </div>

@@ -1,0 +1,4 @@
+use_contract_date_for_cakeday:
+  type: bool
+  default: false
+  description: "Use contract date for cakeday"

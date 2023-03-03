@@ -5,9 +5,7 @@
   .btn {
     margin: 0;
   }
-  * {
-    font-family: var(--font-family);
-  }
+  font-family: var(--font-family);
   .card-row:not(.first-row) {
     margin-top: 0;
   }
@@ -35,7 +33,7 @@
   &.avatar-background {
     .d-user-card__container {
       backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
     }
   }
   &__container {
@@ -189,9 +187,11 @@
   &__avatar img {
     width: 100px;
     height: 100px;
+    border: 2px solid var(--secondary);
     border-radius: 50%;
     position: relative;
     top: -50px;
+    background-color: var(--secondary);
   }
   &__avatar + .user-status-message {
     left: 75px;
@@ -250,7 +250,7 @@
     flex-direction: row;
     align-items: center;
     width: min-content;
-    background-color: rgba(var(--secondary-rgb), 0.5);
+    background-color: rgba(var(--secondary-rgb), 0.75);
     padding: 6px;
     border-radius: 4px;
     gap: 0.5em;
@@ -429,29 +429,32 @@
   }
 }
 
-.user-card-additional-buttons-outlet button {
-  width: 100%;
-  border: none;
-  line-height: normal;
-  box-sizing: border-box;
-  padding: 0.5em 0.65em;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  font-weight: normal;
-  color: var(--primary);
-  background-color: var(--primary-low);
-  flex-grow: 1;
-  cursor: pointer;
-  transition: all 0.25s;
-  gap: 0.5em;
-  border-radius: 4px;
-  margin: 0;
+.user-card-additional-buttons-outlet {
+  div {
+    height: 100%;
+    display: flex;
+  }
+  button {
+    width: 100%;
+    border: none;
+    line-height: normal;
+    box-sizing: border-box;
+    padding: 0.5em 0.65em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+    color: var(--primary);
+    background-color: var(--primary-low);
+    flex-grow: 1;
+    cursor: pointer;
+    transition: all 0.25s;
+    border-radius: 4px;
+    margin: 0;
+  }
 }
 
 .user-card-metadata-outlet h3 {
-
   padding: 3px 5px;
   display: flex;
   border-radius: 5px;
