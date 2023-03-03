@@ -11,6 +11,12 @@ export default apiInitializer("0.11.1", api => {
     classNames: "d-user-card",
     pluginId: "experimental-user-card",
 
+    @computed("user.contractStartDate")
+    get cakeday() {
+      const cakedayDate = moment(this.user.contractStartDate);
+      return { day: cakedayDate.format("MMM Do"), year: cakedayDate.year() };
+    }
+
     @observes("user.card_background_upload_url")
     addBackground(background) {
       if (!this.allowBackgrounds) {

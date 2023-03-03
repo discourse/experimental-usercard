@@ -45,22 +45,24 @@
         <i class="fa-solid fa-pencil"></i>
         <span class="btn-label">Edit</span>
         </button> }}
-        {{#if (or this.showUserLocalTime this.user.location)}}
-          <div class="d-user-card__relative-time">
-            {{#if this.showUserLocalTime}}
-              <div class="d-user-card__time">
-                {{d-icon "far-clock"}}
-                <span class="label">{{this.formattedUserLocalTime}}</span>
-              </div>
-            {{/if}}
-            {{#if this.user.location}}
-              <div class="d-user-card__location">
-                {{d-icon "map-marker-alt"}}
-                <span class="label">{{this.user.location}}</span>
-              </div>
-            {{/if}}
-          </div>
-        {{/if}}
+        {{#unless this.user.profile_hidden}}
+          {{#if (or this.showUserLocalTime this.user.location)}}
+            <div class="d-user-card__relative-time">
+              {{#if this.showUserLocalTime}}
+                <div class="d-user-card__time">
+                  {{d-icon "far-clock"}}
+                  <span class="label">{{this.formattedUserLocalTime}}</span>
+                </div>
+              {{/if}}
+              {{#if this.user.location}}
+                <div class="d-user-card__location">
+                  {{d-icon "map-marker-alt"}}
+                  <span class="label">{{this.user.location}}</span>
+                </div>
+              {{/if}}
+            </div>
+          {{/if}}
+        {{/unless}}
         <div class="d-user-card__badges">
           {{#if this.showBadges}}
             {{#if this.user.featured_user_badges}}
