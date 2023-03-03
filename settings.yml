@@ -2,3 +2,7 @@ use_contract_date_for_cakeday:
   type: bool
   default: false
   description: "Use contract date for cakeday"
+google_maps_location:
+  type: bool
+  default: false
+  description: "Link to google maps for user location"

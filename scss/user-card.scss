@@ -270,6 +270,9 @@
     overflow: hidden;
     white-space: nowrap;
   }
+  &__location-link {
+    color: var(--primary);
+  }
   &__user-content {
     width: auto;
     display: flex;
@@ -287,7 +290,10 @@
     width: var(--font-0);
   }
   &__featured-topic-data,
-  &__featured-topic-data:visited {
+  &__featured-topic-data:visited,
+  &__location-link,
+  &__location-link:visited,
+  &__location-link:hover {
     color: var(--primary);
     text-decoration: underline;
   }
