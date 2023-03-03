@@ -33,7 +33,7 @@
   &.avatar-background {
     .d-user-card__container {
       backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
     }
   }
   &__container {
@@ -429,23 +429,29 @@
   }
 }
 
-.user-card-additional-buttons-outlet button {
-  width: 100%;
-  border: none;
-  line-height: normal;
-  box-sizing: border-box;
-  padding: 0.5em 0.65em;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: normal;
-  color: var(--primary);
-  background-color: var(--primary-low);
-  flex-grow: 1;
-  cursor: pointer;
-  transition: all 0.25s;
-  border-radius: 4px;
-  margin: 0;
+.user-card-additional-buttons-outlet {
+  div {
+    height: 100%;
+    display: flex;
+  }
+  button {
+    width: 100%;
+    border: none;
+    line-height: normal;
+    box-sizing: border-box;
+    padding: 0.5em 0.65em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+    color: var(--primary);
+    background-color: var(--primary-low);
+    flex-grow: 1;
+    cursor: pointer;
+    transition: all 0.25s;
+    border-radius: 4px;
+    margin: 0;
+  }
 }
 
 .user-card-metadata-outlet h3 {
