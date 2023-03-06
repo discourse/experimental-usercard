@@ -57,9 +57,9 @@
               {{#if this.user.location}}
                 <div class="d-user-card__location">
                   {{d-icon "map-marker-alt"}}
-                  {{#if (theme-setting "google_maps_location")}}
+                  {{#if (or (eq (theme-setting "user_location_maps_link") "GoogleMaps") (eq (theme-setting "user_location_maps_link") "OpenStreetMap"))}}
                     <a
-                      href={{user-location this.user.location}}
+                      href={{user-location this.user.location (theme-setting "user_location_maps_link")}}
                       class="label d-user-card__location-link"
                     >{{this.user.location}}</a>
                   {{else}}

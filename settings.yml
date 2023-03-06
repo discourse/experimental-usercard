@@ -6,3 +6,11 @@ google_maps_location:
   type: bool
   default: false
   description: "Link to google maps for user location"
+
+user_location_maps_link:
+  default: none
+  type: enum
+  choices:
+    - none
+    - GoogleMaps
+    - OpenStreetMap
