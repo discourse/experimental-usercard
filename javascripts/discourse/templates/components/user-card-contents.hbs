@@ -374,7 +374,7 @@
               {{#if this.user.can_send_private_message_to_user}}
                 <li class="d-user-card__action">
                   <DButton
-                    @class="d-user-card__button"
+                    @class="d-user-card__button btn-primary"
                     @action={{action "composePM" this.user this.post}}
                     @icon="envelope"
                     @label="user.private_message"
