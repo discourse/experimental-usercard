@@ -23,15 +23,9 @@ export default apiInitializer("0.11.1", api => {
     userLocationLink() {
       const mapOption = settings.user_location_maps_link;
       if (mapOption === "google_maps") {
-        return `https://www.google.com/maps/place/${this.user.location.replace(
-          ",",
-          "+"
-        )}`;
+        return `https://www.google.com/maps/place/${encodeURIComponent(this.user.location)}`;
       } else {
-        return `https://www.openstreetmap.org/search?query=${this.user.location.replace(
-          ",",
-          "%2C%20"
-        )}`;
+        return `https://www.openstreetmap.org/search?query=${encodeURIComponent(this.user.location)}`;
       }
     },
 
