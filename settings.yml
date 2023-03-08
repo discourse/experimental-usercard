@@ -12,5 +12,5 @@ user_location_maps_link:
   type: enum
   choices:
     - none
-    - GoogleMaps
-    - OpenStreetMap
+    - google_maps
+    - open_street_map
