@@ -57,9 +57,9 @@
               {{#if this.user.location}}
                 <div class="d-user-card__location">
                   {{d-icon "map-marker-alt"}}
-                  {{#if (theme-setting "google_maps_location")}}
+                  {{#if this.themeSettingValid}}
                     <a
-                      href={{user-location this.user.location}}
+                      href={{this.userLocationLink}}
                       class="label d-user-card__location-link"
                     >{{this.user.location}}</a>
                   {{else}}
@@ -374,7 +374,7 @@
               {{#if this.user.can_send_private_message_to_user}}
                 <li class="d-user-card__action">
                   <DButton
-                    @class="d-user-card__button"
+                    @class="d-user-card__button btn-primary"
                     @action={{action "composePM" this.user this.post}}
                     @icon="envelope"
                     @label="user.private_message"
