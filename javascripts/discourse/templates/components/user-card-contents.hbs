@@ -183,8 +183,8 @@
           <div class="d-user-card__user-content">
             {{#if this.showFeaturedTopic}}
               <div class="d-user-card__featured-topic">
-                <span class="d-user-card__featured-topic-title">{{replace-emoji
-                    (html-safe "📌")
+                <span class="d-user-card__featured-topic-title">{{emoji
+                    "pushpin"
                   }}</span>
                 <LinkTo
                   @title={{i18n "user.featured_topic"}}
