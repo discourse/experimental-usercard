@@ -183,8 +183,8 @@
           <div class="d-user-card__user-content">
             {{#if this.showFeaturedTopic}}
               <div class="d-user-card__featured-topic">
-                <span class="d-user-card__featured-topic-title">{{html-safe
-                    (replace-emoji "📌")
+                <span class="d-user-card__featured-topic-title">{{replace-emoji
+                    (html-safe "📌")
                   }}</span>
                 <LinkTo
                   @title={{i18n "user.featured_topic"}}
@@ -194,8 +194,8 @@
                     this.user.featured_topic.slug
                     this.user.featured_topic.id
                   }}
-                >{{html-safe
-                    (replace-emoji this.user.featured_topic.title)
+                >{{replace-emoji
+                    (html-safe this.user.featured_topic.fancy_title)
                   }}</LinkTo>
               </div>
             {{/if}}
@@ -230,7 +230,7 @@
                   {{#if this.user.bio_excerpt}}
                     <div class="d-user-card__bio-excerpt">
                       <HtmlWithLinks>
-                        <p>{{html-safe this.user.bio_excerpt}}</p>
+                        <p>{{replace-emoji (html-safe this.user.bio_excerpt)}}</p>
                       </HtmlWithLinks>
                     </div>
                   {{/if}}
