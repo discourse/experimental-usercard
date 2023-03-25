@@ -102,11 +102,7 @@
                 class="d-user-card__avatar"
               >{{bound-avatar this.user "huge"}}</a>
             {{/if}}
-            {{#if this.user.status}}
-              <UserStatusMessage @status={{this.user.status}} />
-            {{else}}
-              <UserAvatarFlair @user={{this.user}} />
-            {{/if}}
+            <UserAvatarFlair @user={{this.user}} />
             <div>
               <PluginOutlet
                 @name="user-card-avatar-flair"
@@ -177,6 +173,7 @@
                     {{if this.user.name " - "}}{{this.user.title}}
                   </span>
                 {{/if}}
+                <UserStatusMessage @status={{this.user.status}} />
               </div>
             </div>
           </div>
