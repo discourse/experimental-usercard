@@ -173,7 +173,9 @@
                     {{if this.user.name " - "}}{{this.user.title}}
                   </span>
                 {{/if}}
-                <UserStatusMessage @status={{this.user.status}} />
+                {{#if this.user.status}}
+                  <UserStatusMessage @status={{this.user.status}} />
+                {{/if}}
               </div>
             </div>
           </div>
