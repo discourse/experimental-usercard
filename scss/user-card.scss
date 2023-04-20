@@ -32,12 +32,12 @@
   overflow: hidden;
   &.avatar-background {
     .d-user-card__container {
-      backdrop-filter: blur(30px);
-      -webkit-backdrop-filter: blur(30px);
+      backdrop-filter: var(--usercard-backdrop-avatar);
     }
   }
   &__container {
     padding: 5px;
+    backdrop-filter: var(--usercard-backdrop);
   }
   &__header {
     height: 100px;
