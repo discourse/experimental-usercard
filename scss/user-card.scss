@@ -33,11 +33,13 @@
   &.avatar-background {
     .d-user-card__container {
       backdrop-filter: var(--usercard-backdrop-avatar);
+      -webkit-backdrop-filter: var(--usercard-backdrop-avatar);
     }
   }
   &__container {
     padding: 5px;
     backdrop-filter: var(--usercard-backdrop);
+    -webkit-backdrop-filter: var(--usercard-backdrop);
   }
   &__header {
     height: 100px;

@@ -1,9 +1,9 @@
 $usercard-backdrop-avatar: dark-light-choose(
   blur(30px),
-  blur(30px) brightness(0.8)
+  blur(30px) brightness(0.7)
 );
 
-$usercard-backdrop: dark-light-choose(none, brightness(0.8));
+$usercard-backdrop: dark-light-choose(none, brightness(0.7));
 
 :root {
   --usercard-backdrop-avatar: #{$usercard-backdrop-avatar};
