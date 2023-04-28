@@ -386,9 +386,15 @@
     margin: 0;
     gap: 0.5em;
   }
-  &__controls li {
+  &__controls li,
+  &__controls div {
     flex: 1 1;
     min-width: max-content;
+    display: flex;
+  }
+  &__controls div .btn {
+    border-radius: 4px;
+    flex: 1 1;
   }
   &__controls .chat-button {
     flex: 1 1;
@@ -398,9 +404,6 @@
   }
   &__controls li:empty {
     display: none;
-  }
-  &__action {
-    display: flex;
   }
   &__button {
     border: none;
