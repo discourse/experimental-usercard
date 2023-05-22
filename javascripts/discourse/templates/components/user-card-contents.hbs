@@ -45,7 +45,7 @@
         <i class="fa-solid fa-pencil"></i>
         <span class="btn-label">Edit</span>
         </button> }}
-        {{#unless this.user.profile_hidden}}
+        {{#unless this.contentHidden}}
           {{#if (or this.showUserLocalTime this.user.location)}}
             <div class="d-user-card__relative-time">
               {{#if this.showUserLocalTime}}
@@ -90,7 +90,7 @@
       <div class="d-user-card__main-content">
         <div class="d-user-card__main-content-top">
           <div class="d-user-card__id">
-            {{#if this.user.profile_hidden}}
+            {{#if this.contentHidden}}
               <span class="d-user-card__avatar">{{bound-avatar
                   this.user
                   "huge"
@@ -119,7 +119,7 @@
                     {{if this.nameFirst 'full-name' 'username'}}"
                   title="@{{this.user.username}}"
                 >
-                  {{#if this.user.profile_hidden}}
+                  {{#if this.contentHidden}}
                     {{if
                       this.nameFirst
                       this.user.name
@@ -200,6 +200,8 @@
             {{/if}}
             {{#if this.user.profile_hidden}}
               <span>{{i18n "user.profile_hidden"}}</span>
+            {{else if this.user.inactive}}
+              <span>{{i18n "user.inactive_user"}}</span>
             {{/if}}
             {{#if this.isSuspendedOrHasBio}}
               <div class="d-user-card__bio">
@@ -236,7 +238,7 @@
                 {{/if}}
               </div>
             {{/if}}
-            {{#unless this.user.profile_hidden}}
+            {{#unless this.contentHidden}}
               <div class="d-user-card__custom-fields">
                 <div class="d-user-card__custom-field-group">
                   {{#if this.user.time_read}}
