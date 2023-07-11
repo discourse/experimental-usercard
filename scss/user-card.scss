@@ -22,7 +22,7 @@
 .d-user-card {
   margin: 1em auto;
   width: 480px;
-  border-radius: 5px;
+  border-radius: var(--d-border-radius);
   box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.1);
   z-index: 1102;
   background: var(--user-background);
@@ -50,7 +50,7 @@
   }
   &__badges {
     display: flex;
-    border-radius: 4px;
+    border-radius: var(--d-border-radius);
     gap: 0.5em;
     margin-left: auto;
   }
@@ -64,7 +64,7 @@
     display: flex;
     padding: 5px 6px;
     background-color: rgba(var(--secondary-rgb), 1);
-    border-radius: 4px;
+    border-radius: var(--d-border-radius);
   }
   &__badges .user-card-badge-link:hover {
     background-color: var(--secondary-very-high);
@@ -81,7 +81,7 @@
     display: flex;
     padding: 5px 6px;
     background-color: rgba(var(--secondary-rgb), 1);
-    border-radius: 4px;
+    border-radius: var(--d-border-radius);
     align-items: center;
   }
   &__badges-more:hover {
@@ -130,7 +130,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border-radius: 5px;
+    border-radius: var(--d-border-radius);
     background-color: var(--secondary);
     padding: 0.5em;
   }
@@ -253,7 +253,7 @@
     width: min-content;
     background-color: rgba(var(--secondary-rgb), 0.75);
     padding: 6px;
-    border-radius: 4px;
+    border-radius: var(--d-border-radius);
     gap: 0.5em;
   }
   &__time {
@@ -304,7 +304,7 @@
     font-size: var(--font-down-2);
     margin-bottom: 1em;
     padding: 0.5em;
-    border-radius: 5px;
+    border-radius: var(--d-border-radius);
   }
   &__bio {
     margin-bottom: 0.75em;
@@ -343,7 +343,7 @@
   &__field {
     padding: 3px 5px;
     display: flex;
-    border-radius: 5px;
+    border-radius: var(--d-border-radius);
     align-items: center;
   }
   &__meta-data {
@@ -393,13 +393,13 @@
     display: flex;
   }
   &__controls div .btn {
-    border-radius: 4px;
+    border-radius: var(--d-border-radius);
     flex: 1 1;
   }
-  &__controls .chat-button {
+  &__controls .chat-user-card-btn {
     flex: 1 1;
   }
-  &__controls .chat-button div {
+  &__controls .chat-user-card-btn div {
     display: flex;
   }
   &__controls li:empty {
@@ -417,7 +417,7 @@
     flex-grow: 1;
     cursor: pointer;
     transition: all 0.25s;
-    border-radius: 4px;
+    border-radius: var(--d-border-radius);
     margin: 0;
   }
   .user-card-chat-btn {
@@ -432,7 +432,7 @@
     flex-grow: 1;
     cursor: pointer;
     transition: all 0.25s;
-    border-radius: 4px;
+    border-radius: var(--d-border-radius);
     margin: 0;
   }
 }
@@ -457,7 +457,7 @@
     flex-grow: 1;
     cursor: pointer;
     transition: all 0.25s;
-    border-radius: 4px;
+    border-radius: var(--d-border-radius);
     margin: 0;
   }
 }
@@ -465,7 +465,7 @@
 .user-card-metadata-outlet h3 {
   padding: 3px 5px;
   display: flex;
-  border-radius: 5px;
+  border-radius: var(--d-border-radius);
   font-size: var(--font-0);
   span.desc {
     color: var(--primary);
@@ -548,7 +548,7 @@ body:not(.staff) {
   display: flex;
   // padding: 4px 6px;
   background-color: rgba(var(--secondary-rgb), 0.75);
-  border-radius: 4px;
+  border-radius: var(--d-border-radius);
   &:not(:has(*)) {
     display: none;
   }
