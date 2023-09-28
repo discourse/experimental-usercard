@@ -186,13 +186,13 @@
                     "pushpin"
                   }}</span>
                 <LinkTo
-                  @title={{i18n "user.featured_topic"}}
                   @route="topic"
-                  @class="d-user-card__link"
                   @models={{array
                     this.user.featured_topic.slug
                     this.user.featured_topic.id
                   }}
+                  title={{i18n "user.featured_topic"}}
+                  class="d-user-card__link"
                 >{{replace-emoji
                     (html-safe this.user.featured_topic.fancy_title)
                   }}</LinkTo>
