@@ -396,10 +396,10 @@
     border-radius: var(--d-border-radius);
     flex: 1 1;
   }
-  &__controls .chat-user-card-btn {
+  &__controls .chat-direct-message-btn {
     flex: 1 1;
   }
-  &__controls .chat-user-card-btn div {
+  &__controls .chat-direct-message-btn div {
     display: flex;
   }
   &__controls li:empty {
