@@ -231,7 +231,9 @@
                   {{#if this.user.bio_excerpt}}
                     <div class="d-user-card__bio-excerpt">
                       <HtmlWithLinks>
-                        <p>{{replace-emoji (html-safe this.user.bio_excerpt)}}</p>
+                        <p>{{replace-emoji
+                            (html-safe this.user.bio_excerpt)
+                          }}</p>
                       </HtmlWithLinks>
                     </div>
                   {{/if}}
@@ -281,7 +283,7 @@
                             @actionParam={{this.user}}
                             @icon="envelope"
                             @label="admin.users.check_email.text"
-                            @class="btn-primary"
+                            class="btn-primary"
                           />
                         {{/if}}
                       </span>
@@ -326,12 +328,14 @@
               {{#if this.user.website_name}}
                 <div class="d-user-card__website">
                   {{d-icon "globe"}}
+                  {{! template-lint-disable link-rel-noopener }}
                   <a
-                    href="{{this.user.website}}"
+                    href={{this.user.website}}
                     rel="noopener {{unless this.removeNoFollow 'nofollow ugc'}}"
                     target="_blank"
                     class="d-user-card__link"
                   >{{this.user.website_name}}</a>
+                  {{! template-lint-enable link-rel-noopener }}
                 </div>
               {{/if}}
               {{#if this.user.created_at}}
@@ -375,7 +379,7 @@
               {{#if this.user.can_send_private_message_to_user}}
                 <li class="d-user-card__action">
                   <DButton
-                    @class="d-user-card__button btn-primary"
+                    class="d-user-card__button btn-primary"
                     @action={{action "composePM" this.user this.post}}
                     @icon="envelope"
                     @label="user.private_message"
@@ -390,7 +394,7 @@
               {{#if this.showFilter}}
                 <li class="d-user-card__action">
                   <DButton
-                    @class="d-user-card__button btn-default"
+                    class="d-user-card__button btn-default"
                     @action={{action "filterPosts" this.user}}
                     @icon="filter"
                     @translatedLabel={{this.filterPostsLabel}}
@@ -400,7 +404,7 @@
               {{#if this.hasUserFilters}}
                 <li class="d-user-card__action">
                   <DButton
-                    @class="d-user-card__button btn-default"
+                    class="d-user-card__button btn-default"
                     @action={{action "cancelFilter"}}
                     @icon="times"
                     @label="topic.filters.cancel"
@@ -410,7 +414,7 @@
               {{#if this.showDelete}}
                 <li class="d-user-card__action">
                   <DButton
-                    @class="d-user-card__button btn-danger"
+                    class="d-user-card__button btn-danger"
                     @action={{action "deleteUser"}}
                     @actionParam={{this.user}}
                     @icon="exclamation-triangle"

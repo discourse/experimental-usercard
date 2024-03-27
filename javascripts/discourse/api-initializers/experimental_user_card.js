@@ -1,13 +1,10 @@
-import { addExtraUserClasses } from "discourse/helpers/user-avatar";
-import { apiInitializer } from "discourse/lib/api";
-import { avatarImg } from "discourse/lib/utilities";
-import discourseComputed from "discourse-common/utils/decorators";
 import { get } from "@ember/object";
-import { getURLWithCDN } from "discourse-common/lib/get-url";
 import { isEmpty } from "@ember/utils";
-import { observes } from "discourse-common/utils/decorators";
+import { apiInitializer } from "discourse/lib/api";
+import { getURLWithCDN } from "discourse-common/lib/get-url";
+import discourseComputed, { observes } from "discourse-common/utils/decorators";
 
-export default apiInitializer("0.11.1", api => {
+export default apiInitializer("0.11.1", (api) => {
   api.modifyClass("component:user-card-contents", {
     classNames: "d-user-card",
     pluginId: "experimental-user-card",
@@ -23,14 +20,18 @@ export default apiInitializer("0.11.1", api => {
     userLocationLink() {
       const mapOption = settings.user_location_maps_link;
       if (mapOption === "google_maps") {
-        return `https://www.google.com/maps/place/${encodeURIComponent(this.user.location)}`;
+        return `https://www.google.com/maps/place/${encodeURIComponent(
+          this.user.location
+        )}`;
       } else {
-        return `https://www.openstreetmap.org/search?query=${encodeURIComponent(this.user.location)}`;
+        return `https://www.openstreetmap.org/search?query=${encodeURIComponent(
+          this.user.location
+        )}`;
       }
     },
 
     @observes("user.card_background_upload_url")
-    addBackground(background) {
+    addBackground() {
       if (!this.allowBackgrounds) {
         return;
       }
@@ -62,6 +63,6 @@ export default apiInitializer("0.11.1", api => {
       if (isEmpty(backgroundUrl) && !isEmpty(avatar_template)) {
         thisElem.classList.add("avatar-background");
       }
-    }
+    },
   });
 });
