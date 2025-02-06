@@ -1,8 +1,8 @@
 import { get } from "@ember/object";
 import { isEmpty } from "@ember/utils";
 import { apiInitializer } from "discourse/lib/api";
-import { getURLWithCDN } from "discourse-common/lib/get-url";
-import discourseComputed, { observes } from "discourse-common/utils/decorators";
+import discourseComputed, { observes } from "discourse/lib/decorators";
+import { getURLWithCDN } from "discourse/lib/get-url";
 
 export default apiInitializer("0.11.1", (api) => {
   api.modifyClass("component:user-card-contents", {
